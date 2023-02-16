@@ -27,7 +27,9 @@ N/A
 N/A
 
 ### Ports
-N/A
+| Port on host              | Port in container | Comments                |
+|---------------------------|-------------------|-------------------------|
+| Choose at your discretion | 8000              | Uvicorn (web interface) |
 
 ### Volumes
 N/A
@@ -46,7 +48,7 @@ sudo docker build --no-cache --file Dockerfile --tag loganmarchione/python-todo-
 
 ```
 sudo docker run --name python-todo-crud-example \
-  -p 8000:80 \
+  -p 8000:8000 \
   --volume 'sqlite_db:/usr/src/app/data' \
   loganmarchione/python-todo-crud-example
 ```
