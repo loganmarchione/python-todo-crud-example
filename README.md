@@ -32,7 +32,9 @@ N/A
 | Choose at your discretion | 8000              | Uvicorn (web interface) |
 
 ### Volumes
-N/A
+| Volume on host            | Volume in container          | Comments                           |
+|---------------------------|------------------------------|------------------------------------|
+| Choose at your discretion | /usr/src/app/data            | Used to store SQLite database      |
 
 ### Example usage
 
