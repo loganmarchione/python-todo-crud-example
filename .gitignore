@@ -1,4 +1,3 @@
-database/
-__pycache__/
 .venv
-*.sqlite
+**/*.sqlite
+**/__pycache__
