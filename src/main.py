@@ -30,7 +30,7 @@ def root():
 def create_todo(todo: schemas.ToDoCreate, session: Session = Depends(get_session)):
 
     # create an instance of the ToDo database model
-    tododb = models.ToDo(task=todo.task)
+    tododb = models.ToDo(task=todo.task, is_done=todo.is_done)
 
     # add it to the session and commit it
     session.add(tododb)
@@ -55,7 +55,7 @@ def read_todo(id: int, session: Session = Depends(get_session)):
 
 
 @app.put("/todo/{id}", response_model=schemas.ToDo)
-def update_todo(id: int, task: str, session: Session = Depends(get_session)):
+def update_todo(id: int, task: str, is_done: bool, session: Session = Depends(get_session)):
 
     # get the todo item with the given id
     todo = session.query(models.ToDo).get(id)
@@ -63,6 +63,7 @@ def update_todo(id: int, task: str, session: Session = Depends(get_session)):
     # update todo item with the given task (if an item with the given id was found)
     if todo:
         todo.task = task
+        todo.is_done = is_done
         session.commit()
 
     # check if todo item with given id exists. If not, raise exception and return 404 not found response
