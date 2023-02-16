@@ -6,7 +6,7 @@ LABEL \
   maintainer="Logan Marchione <logan@loganmarchione.com>" \
   org.opencontainers.image.authors="Logan Marchione <logan@loganmarchione.com>" \
   org.opencontainers.image.title="python-todo-crud-example" \
-  org.opencontainers.image.description="Python TODO app using FastAPI" \
+  org.opencontainers.image.description="An example Python CRUD (Create, Read, Update, Delete) to-do application using FastAPI" \
   org.opencontainers.image.created=$BUILD_DATE
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
