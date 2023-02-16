@@ -30,7 +30,7 @@ def root():
 def create_todo(todo: schemas.ToDoCreate, session: Session = Depends(get_session)):
 
     # create an instance of the ToDo database model
-    tododb = models.ToDo(task = todo.task)
+    tododb = models.ToDo(task=todo.task)
 
     # add it to the session and commit it
     session.add(tododb)
@@ -88,7 +88,7 @@ def delete_todo(id: int, session: Session = Depends(get_session)):
     return None
 
 
-@app.get("/todo", response_model = List[schemas.ToDo])
+@app.get("/todo", response_model=List[schemas.ToDo])
 def read_todo_list(session: Session = Depends(get_session)):
 
     # get all todo items
@@ -98,5 +98,5 @@ def read_todo_list(session: Session = Depends(get_session)):
 
 
 @app.get("/health")
-def root():
-    return {"status":"ok","message":"FastAPI is running"}
+def health():
+    return {"status":"ok","message":"FastAPI is running"}  # noqa: E231
