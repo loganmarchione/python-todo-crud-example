@@ -1,4 +1,34 @@
+# ⚠️ WARNING ⚠️
+
+This is an example application and is not ready for actual usage.
+
 # python-todo-crud-example
+
+An example Python CRUD (Create, Read, Update, Delete) to-do application using FastAPI.
+  - Source code: [GitHub](https://github.com/loganmarchione/python-todo-crud-example)
+  - Image base: [Python (slim Buster)](https://hub.docker.com/_/python)
+  - Init system: N/A
+  - Application: N/A
+  - Architecture: `linux/amd64`
+
+## Explanation
+
+  - My attempt to learn FastAPI and CRUD.
+  - Based on [this](https://www.gormanalysis.com/blog/building-a-simple-crud-application-with-fastapi/#refactoring) blog post.
+
+## Requirements
+N/A
+
+## Docker image information
+
+### Environment variables
+N/A
+
+### Ports
+N/A
+
+### Volumes
+N/A
 
 ### Example usage
 
@@ -11,7 +41,6 @@ sudo docker build --no-cache --file Dockerfile --tag loganmarchione/python-todo-
 ```
 
 #### Run
-Page will be available **only** over HTTPS at `https://YOUR_IP_ADDRESS:PORT_YOU_CHOSE` (there will be a self-signed certificate from Flask).
 
 ```
 sudo docker run --name python-todo-crud-example \
@@ -21,21 +50,18 @@ sudo docker run --name python-todo-crud-example \
 ```
 
 Below is an example of running locally (used to edit/test/debug).
+
 ```
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 uvicorn --app-dir src main:app --reload
-```
-
-Open http://127.0.0.1:8000/. Access the FastAPI docs at http://127.0.0.1:8000/docs.
-
-Use the command below to exit the venv AFTER you're done running.
-
-```
+# Page will be available at http://127.0.0.1:8000
+# Docs will be available at http://127.0.0.1:8000/docs
+# Use the command below to exit the venv AFTER you're done running
 deactivate
 ```
 
 # Source
 
-Based on [this](https://www.gormanalysis.com/blog/building-a-simple-crud-application-with-fastapi/#refactoring) blog post
+
