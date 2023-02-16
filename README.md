@@ -16,7 +16,7 @@ deactivate
 
 Run the app with the command below, then open http://127.0.0.1:8000/
 ```
-uvicorn main:app --reload
+uvicorn --app-dir src main:app --reload
 ```
 
 Access the FastAPI docs at http://127.0.0.1:8000/docs
