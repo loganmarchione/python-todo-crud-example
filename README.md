@@ -63,7 +63,3 @@ uvicorn --app-dir src main:app --reload
 # Use the command below to exit the venv AFTER you're done running
 deactivate
 ```
-
-# Source
-
-
