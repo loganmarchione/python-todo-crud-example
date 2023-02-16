@@ -1,12 +1,16 @@
-name: CI
+name: CI/CD
 
 on:
   push:
-    branches:
-      - master
+    tags:
+      - "[0-9]+.[0-9]+.[0-9]+"
   schedule:
-    - cron: "0 5 * * 0"
+    - cron: "30 5 * * 0"
   workflow_dispatch:
+
+env:
+  USER: loganmarchione
+  REPO: python-todo-crud-example
 
 jobs:
   lint:
@@ -38,3 +42,54 @@ jobs:
     - name: Lint with flake8
       run: |
         grep -rl '^#!/.*py' | xargs -n1 flake8 --extend-ignore=E501
+
+  ci:
+    name: Build and test
+
+    needs: lint
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the codebase
+      uses: actions/checkout@v3
+
+    - name: Set variables
+      run: |
+        VER=$(cat VERSION)
+        echo "VERSION=$VER" >> $GITHUB_ENV
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Build Docker Image
+      uses: docker/build-push-action@v4
+      with:
+        push: false
+        context: .
+        file: Dockerfile
+        load: true
+        tags: |
+          ${{ env.USER }}/${{ env.REPO }}:${{ env.VERSION }}
+          ${{ env.USER }}/${{ env.REPO }}:latest
+
+    - name: Test image
+      run: |
+        docker images
+        # TODO - Add image test here
+        docker ps -a
+
+    - name: Container scan with Dockle
+      uses: goodwithtech/dockle-action@0.1.0
+      with:
+        image: '${{ env.USER }}/${{ env.REPO }}:${{ env.VERSION }}'
+        format: 'list'
+        exit-code: '1'
+        exit-level: 'warn'
+        ignore: 'CIS-DI-0001'
+
+    - name: Container scan with Trivy
+      uses: aquasecurity/trivy-action@0.9.1
+      with:
+        scan-type: 'image'
+        image-ref: '${{ env.USER }}/${{ env.REPO }}:${{ env.VERSION }}'
+        trivy-config: ./github/trivy.yaml
