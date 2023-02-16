@@ -30,8 +30,8 @@ RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
 
 COPY --chown=todo:todo src /usr/src/app/src
 
-#COPY VERSION /
+COPY VERSION /
 
 CMD ["python3", "-m", "uvicorn", "--app-dir", "src", "main:app", "--proxy-headers", "--host", "0.0.0.0"]
 
-#HEALTHCHECK CMD nc -z localhost 8000 || exit 1 
+HEALTHCHECK CMD nc -z localhost 8000 || exit 1
