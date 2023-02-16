@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 # Create a sqlite engine instance
-engine = create_engine("sqlite:///database/todo.db")
+engine = create_engine("sqlite:///data/todo.db")
 Base = declarative_base()
 
 # Create SessionLocal class from sessionmaker factory
