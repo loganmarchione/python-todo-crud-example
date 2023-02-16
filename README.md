@@ -4,7 +4,7 @@ This is an example application and is not ready for actual usage.
 
 # python-todo-crud-example
 
-An example Python CRUD (Create, Read, Update, Delete) to-do application using FastAPI.
+An example Python CRUD (Create, Read, Update, Delete) to-do application using FastAPI
   - Source code: [GitHub](https://github.com/loganmarchione/python-todo-crud-example)
   - Image base: [Python (slim Buster)](https://hub.docker.com/_/python)
   - Init system: N/A
