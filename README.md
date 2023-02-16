@@ -4,6 +4,8 @@ This is an example application and is not ready for actual usage.
 
 # python-todo-crud-example
 
+[![CI/CD](https://github.com/loganmarchione/python-todo-crud-example/actions/workflows/main.yml/badge.svg)](https://github.com/loganmarchione/python-todo-crud-example/actions/workflows/main.yml)
+
 An example Python CRUD (Create, Read, Update, Delete) to-do application using FastAPI
   - Source code: [GitHub](https://github.com/loganmarchione/python-todo-crud-example)
   - Image base: [Python (slim Buster)](https://hub.docker.com/_/python)
