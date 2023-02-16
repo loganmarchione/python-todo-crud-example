@@ -34,4 +34,4 @@ COPY --chown=todo:todo src /usr/src/app/src
 
 CMD ["python3", "-m", "uvicorn", "--app-dir", "src", "main:app", "--proxy-headers", "--host", "0.0.0.0"]
 
-#HEALTHCHECK CMD nc -z localhost 80 || exit 1 
+#HEALTHCHECK CMD nc -z localhost 8000 || exit 1 
