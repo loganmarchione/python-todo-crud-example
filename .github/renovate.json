@@ -7,4 +7,13 @@
     "dependencyDashboard": true,
     "dependencyDashboardTitle": "Renovate Dashboard",
     "labels": ["renovatebot"]
+    "packageRules": [
+      {
+        "managers": ["github-actions"],
+        "matchUpdateTypes": ["patch"],
+        "automerge": true,
+        "automergeType": "pr",
+        "platformAutomerge": true
+      }
+    ]
   }
