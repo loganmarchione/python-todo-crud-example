@@ -4,8 +4,6 @@ This is an example application and is not ready for actual usage.
 
 # python-todo-crud-example
 
-[![CI/CD](https://github.com/loganmarchione/python-todo-crud-example/actions/workflows/main.yml/badge.svg)](https://github.com/loganmarchione/python-todo-crud-example/actions/workflows/main.yml)
-
 An example Python CRUD (Create, Read, Update, Delete) to-do application using FastAPI
   - Source code: [GitHub](https://github.com/loganmarchione/python-todo-crud-example)
   - Image base: [Python (slim Buster)](https://hub.docker.com/_/python)
@@ -16,7 +14,7 @@ An example Python CRUD (Create, Read, Update, Delete) to-do application using Fa
 ## Explanation
 
   - My attempt to learn FastAPI and CRUD.
-  - Based on [this](https://www.gormanalysis.com/blog/building-a-simple-crud-application-with-fastapi/#refactoring) blog post.
+  - Based on [this](https://www.gormanalysis.com/blog/building-a-simple-crud-application-with-fastapi/#refactoring) blog post, but with Docker support.
 
 ## Requirements
 N/A
@@ -43,7 +41,7 @@ N/A
 ```
 git clone https://github.com/loganmarchione/python-todo-crud-example.git
 cd python-todo-crud-example
-sudo docker build --no-cache --file Dockerfile --tag loganmarchione/python-todo-crud-example  .
+sudo docker build --no-cache --file Dockerfile --tag loganmarchione/python-todo-crud-example .
 ```
 
 #### Run
